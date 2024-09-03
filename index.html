@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        header {
+            background-color: rgb(18, 18, 62);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+            padding: 0 20px;
+        }
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+        .nav-list {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .nav-list li {
+            list-style: none;
+        }
+        .nav-list li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+        }
+        .nav-list li a:hover {
+            color: rgb(118, 118, 206);
+        }
+        @media (max-width: 767px) {
+            .menu-toggle {
+                display: flex;
+            }
+            .nav-list {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                background-color: rgb(18, 18, 62);
+            }
+            .nav-list.active {
+                display: flex;
+            }
+            .nav-list li {
+                margin: 1rem 0;
+                text-align: center;
+            }
+        }
+        .left {
+            font-size: 1.5rem;
+        }
+        .firstSection {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem 1rem;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+        .firstSection > div {
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .leftSection {
+            font-size: 2rem;
+            margin: 2rem 0;
+        }
+        .rightSection {
+            margin-left: auto;
+            text-align: right;
+        }
+        .rightSection img {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            display: block;
+        }
+        .purple {
+            color: rgb(170, 107, 228);
+        }
+        .text-gray {
+            color: gray;
+        }
+        .secondSection {
+            max-width: 90%;
+            margin: auto;
+            text-align: center;
+        }
+        .secondSection h1 {
+            font-size: 2rem;
+            margin: 2rem 0;
+        }
+        main hr {
+            border: 0;
+            background: #9c97f1;
+            height: 1.2px;
+            margin: 2rem auto;
+            width: 80%;
+        }
+        .secondSection .box {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .secondSection .vertical {
+            background-color: white;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            width: 250px;
+            color: black;
+        }
+        .image-top {
+            width: 45px;
+            margin-bottom: 1rem;
+        }
+        footer {
+            background-color: rgb(33, 33, 48);
+            width: 100%;
+            padding: 2rem 1rem;
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-content {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer-thankyou {
+            color: rgb(202, 211, 208);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        .footer-social {
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            align-items: center;
+        }
+        .footer-social a img {
+            width: 30px;
+        }
+        @media (min-width: 768px) {
+            .firstSection {
+                flex-direction: row;
+                justify-content: space-around;
+                padding: 4rem 2rem;
+            }
+            .firstSection > div {
+                width: 45%;
+            }
+            .leftSection {
+                font-size: 3rem;
+            }
+            .secondSection .box {
+                gap: 4rem;
+            }
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+            .footer-thankyou {
+                text-align: left;
+                max-width: 600px;
+            }
+        }
+        .aboutSection {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .aboutSection h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: rgb(239, 239, 239);
+        }
+        .aboutSection p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: rgb(202, 211, 208);
+        }
+        .projectsSection {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .projects-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .projectsSection h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: rgb(255, 255, 255);
+        }
+        .projects-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        .project-card {
+            background-color: rgb(251, 251, 253);
+            padding: 1.6rem;
+            border-radius: 8px;
+            width: 300px;
+            text-align: left;
+            color: rgb(0, 0, 0);
+        }
+        .project-card h2 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: rgb(0, 0, 0);
+        }
+        .project-card p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        .project-link {
+            text-decoration: none;
+            color: rgb(66, 15, 114);
+            font-weight: bold;
+        }
+        .project-link:hover {
+            color: rgb(118, 118, 206);
+        }
+        .resumeSection {
+            background-color: rgb(0, 0, 33);
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .resume-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .resumeSection h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: rgb(239, 239, 239);
+        }
+        .resumeSection a {
+            text-decoration: none;
+            color: rgb(118, 118, 206);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        .resumeSection a:hover {
+            color: rgb(170, 107, 228);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="left">TARANG's Portfolio</div>
+            <div class="menu-toggle" id="mobile-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#Education">Education</a></li>
+                <li><a href="#projects">Project</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home" class="firstSection">
+            <div class="leftSection">
+                Hi, My Name is <span class="purple">TARANG VERMA</span>
+                <div>and I am a </div>
+                <span id="element" style="color: blueviolet;">College Student.</span> 
+            </div>
+            <div class="rightSection">
+                <img src="static/me.jpg" alt="Tarang's photo">
+            </div>
+        </section>
+        <hr>
+        <section id="about" class="aboutSection">
+            <div class="about-content">
+                <h1>About Me</h1>
+                <p>
+                    Hello! I'm <strong>Tarang Verma</strong>, a passionate and aspiring Data Analyst currently pursuing my B.Tech in Artificial Intelligence at Noida Institute of Engineering and Technology. I have a deep interest in exploring data, finding patterns, and solving problems with innovative solutions. 
+                </p>
+                <p>
+                    I believe in continuous learning and growth, and I'm always eager to take on new challenges that push my boundaries. Whether it's working on a new project, learning a new skill, or collaborating with like-minded individuals, I strive to make meaningful contributions in everything I do.
+                </p>
+                <p>
+                    When I'm not coding or analyzing data, I enjoy reading about the latest trends in technology, playing video games, and connecting with people who share similar passions.
+                </p>
+            </div>
+        </section>
+        <section id="resume" class="resumeSection">
+            <div class="resume-content">
+                <h1>My Resume</h1>
+                <p>You can view or download my resume by clicking the link below:</p>
+                <a href="static/myresume.pdf" target="_blank">Download Resume</a>
+            </div>
+        </section>
+        <hr>
+        <section id="Education" class="secondSection">
+
+            <h1>My Education</h1>
+            <div class="box">
+                <div class="vertical">
+                    <img class="image-top" src="static/CBSE.png" alt="CBSE">
+                    <div class="vertical-title"><b>Matriculation</b><br>(2019-2020)<br>Vidya Public School</div>
+                    <div class="vertical-desc">Science with 77%</div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="static/CBSE.png" alt="CBSE">
+                    <div class="vertical-title"><b>Intermediate</b><br>(2020-2022)<br>Arsh Public School</div>
+                        <div class="vertical-desc">PCM with 64%</div>
+                </div>
+                <div class="vertical">
+                    <img class="image-top" src="static/AKTU.png" alt="AKTU">
+                    <div class="vertical-title"><b>B.Tech(Artificial Intelligence)</b><br>
+                        (2022-Present)</div>
+                        <div class="vertical-desc">
+                            Noida Institute of Engineering and Technology (NIET)
+                        </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <section id="projects" class="projectsSection">
+            <div class="projects-content">
+                <h1>My Projects</h1>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h2>House Price Prediction Model</h2>
+                        <p>I developed a machine learning model to predict house prices, leveraging algorithms like Random Forest and Gradient Boosting, with a focus on accuracy and real-time predictions.</p><br>
+                        <a href="https://github.com/tarangver/EdunetFoundationIntermshipProject" class="project-link">View Details</a>
+                    </div>
+                    <div class="project-card">
+                        <h2>Model Evaluation and Comparison</h2>
+                        <p>I developed and evaluated multiple machine learning models on the Iris dataset, comparing performance using metrics like accuracy, precision, recall, F1 score, and ROC AUC.</p><br>
+                        <a href="https://github.com/tarangver/CODTECH-TASK2" class="project-link">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr>
+    </main>
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <div class="footer-thankyou">
+                Thank you for visiting my portfolio! I appreciate your time and interest in exploring my work. If you have any questions, feedback, or opportunities to discuss, feel free to get in touch. I'm always excited to connect and collaborate!
+            </div>
+            <div class="footer-social">
+                <a href="https://www.linkedin.com/in/verma-tarang/"><img src="static/LI.png" alt="LinkedIn"></a>
+                <a href="https://github.com/tarangver"><img src="static/git.png" alt="Github"></a>
+                <a href="mailto:tarangverma60@gmail.com"><img src="static/gmail.png" alt="Email"></a>
+            </div>
+        </div>
+        <p>© 2024 TARANG VERMA. All rights reserved.</p>
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+          strings: ['College Student.'],
+          typeSpeed: 50,
+        });
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            const navList = document.querySelector('.nav-list');
+            navList.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
